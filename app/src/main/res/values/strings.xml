@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">BMI calculator</string>
+    <string name="bmi">BMI</string>
+    <string name="mass_kg">Mass (kg)</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="units">Units:</string>
+    <string name="imperial">Imperial</string>
+    <string name="metrical">Metrical</string>
+    <string name="mass_lbs">Mass (lbs)</string>
+    <string name="height_in">Height (in)</string>
+    <string name="back_button">\"back button\"</string>
+    <string name="saved_data_mass">"saved_data_mass"</string>
+    <string name="saved_data_height">"saved_data_height</string>
+
+    <string name="title_activity_about2">AboutActivity2</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="pawe_ledwig">Paweł Ledwig</string>
+    <string name="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis arcu id lacus semper ornare. Ut posuere massa vel magna lacinia, non malesuada quam suscipit.</string>
+    <string name="lorem2">Quisque ac est molestie, consectetur libero eget, blandit lacus. Ut pharetra eget eros ut mattis. Nam lobortis fermentum orci, eget interdum diam elementum quis.</string>
+    <string name="author_name">Paweł Ledwig</string>
+</resources>
