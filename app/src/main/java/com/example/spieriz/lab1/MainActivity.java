@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     MenuItem menu_about;
 
-    BMI bmi_class;
+    BMI BMI_CLASS;
     private String defaultValue = "";
 
     @Override
@@ -35,16 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        in_mass = findViewById(R.id.input_mass);
-        in_height = findViewById(R.id.input_height);
-        but_calculate = findViewById(R.id.but_button);
-        toggle_button = findViewById(R.id.toggleButton);
-
-        textMass = findViewById(R.id.textMass);
-        textHeight = findViewById(R.id.textHeight);
-
-        menu_about = findViewById(R.id.about);
+        findViews();
 
         restoreBackupData();
 
@@ -57,20 +48,6 @@ public class MainActivity extends AppCompatActivity {
                     changeTextToMetrical();
                 }
             }
-
-            private void changeTextToMetrical() {
-                textMass.setText(R.string.mass_kg);
-                textHeight.setText(R.string.height_cm);
-                in_mass.setText("");
-                in_height.setText("");
-            }
-
-            private void changeTextToImperial() {
-                textMass.setText(R.string.mass_lbs);
-                textHeight.setText(R.string.height_in);
-                in_mass.setText("");
-                in_height.setText("");
-            }
         });
 
         but_calculate.setOnClickListener(new View.OnClickListener() {
@@ -78,21 +55,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     if (in_height.getText().toString().length() == 0 && in_mass.getText().toString().length() == 0) {
-                        throw new IllegalArgumentException("Missing argument");
+                        throw new IllegalArgumentException(getString(R.string.missingArgument));
                     }
                     double height = Double.valueOf(in_height.getText().toString());
                     double mass = Double.valueOf(in_mass.getText().toString());
 
                     if (toggle_button.isChecked()) {
-                        bmi_class = new BmiForLbsIn(mass * 0.454, height * 2.54);
+                        BMI_CLASS = new BmiForLbsIn(mass * 0.454, height * 2.54);
                     } else {
-                        bmi_class = new BmiForKgM(mass, height);
+                        BMI_CLASS = new BmiForKgM(mass, height);
                     }
 
-                    double bmi_result = bmi_class.calculate();
+                    double bmi_result = BMI_CLASS.calculate();
 
                     Intent myIntent = new Intent(MainActivity.this, ResultActivity.class);
-                    myIntent.putExtra("result", bmi_result); //Optional parameters
+                    myIntent.putExtra(getString(R.string.result_string), bmi_result); //Optional parameters
                     startActivity(myIntent);
                 } catch (IllegalArgumentException e){
                     Toast.makeText(getApplicationContext(), e.toString(),
@@ -100,6 +77,32 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void findViews() {
+        in_mass = findViewById(R.id.input_mass);
+        in_height = findViewById(R.id.input_height);
+        but_calculate = findViewById(R.id.but_button);
+        toggle_button = findViewById(R.id.toggleButton);
+
+        textMass = findViewById(R.id.textMass);
+        textHeight = findViewById(R.id.textHeight);
+
+        menu_about = findViewById(R.id.about);
+    }
+
+    private void changeTextToMetrical() {
+        textMass.setText(R.string.mass_kg);
+        textHeight.setText(R.string.height_cm);
+        in_mass.setText("");
+        in_height.setText("");
+    }
+
+    private void changeTextToImperial() {
+        textMass.setText(R.string.mass_lbs);
+        textHeight.setText(R.string.height_in);
+        in_mass.setText("");
+        in_height.setText("");
     }
 
     private void restoreBackupData() {

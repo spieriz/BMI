@@ -20,4 +20,6 @@
     <string name="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis arcu id lacus semper ornare. Ut posuere massa vel magna lacinia, non malesuada quam suscipit.</string>
     <string name="lorem2">Quisque ac est molestie, consectetur libero eget, blandit lacus. Ut pharetra eget eros ut mattis. Nam lobortis fermentum orci, eget interdum diam elementum quis.</string>
     <string name="author_name">Paweł Ledwig</string>
+    <string name="result_string">result</string>\
+    <string name="missingArgument">Missing argument</string>
 </resources>
